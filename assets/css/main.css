@@ -1,0 +1,146 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(5, 5, 48);
+    font-family: 'Bonheur Royale', cursive; ;
+}
+.mooncake-contain {
+    position: relative;
+    top: 60px;
+}
+.base {
+    width: 200px;
+    height: 200px;
+    background-color: #661414;
+    box-shadow:inset 0px 5px 10px black,
+                    0px 5px 10px black ;
+    border: 5px solid #c00000 ;
+    position: relative;
+    display: grid;
+    grid-template-columns: 100px 100px;
+    grid-row: auto auto;
+    grid-row-gap: 5px;
+    transform: rotate(-30deg);     
+    animation: base linear 0.5s;  
+}
+@keyframes base {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-30deg);
+    }
+    
+}
+.base::after {
+    content: "";
+    width: 100%;
+    height: 5px;
+    background-color: #c00000;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0px 5px 10px black;
+}
+.base::before {
+    content:"";
+    width: 5px;
+    height: 100%;
+    background-color: #c00000;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    box-shadow: 0px 0px 5px black;
+}
+.base img {
+    width: 90px;
+    position: relative;
+    z-index: 2;    
+}
+.cover {
+    width: 200px;
+    height: 200px;
+    background-color:  #a70404;
+    position: relative;
+    z-index: 3;
+    top: -150px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px 5px black;
+    animation: cover linear 0.5s;
+}
+@keyframes cover {
+    from{
+        top: 0px;
+        left: 0px;
+    }
+    to {
+        top: -150px;
+        left: 100px
+    }
+    
+}
+.cover::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 2px solid black;
+    filter: blur(1px);
+    
+}
+.cover img {
+    width: 110px;
+}
+.title {
+    font-size: 60px;
+    color: rgb(255, 102, 0);
+    position: relative;
+    top: -100px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-shadow: 5px 5px 5px black;
+    animation: text linear 0.5s,
+                text-grow linear 0.8s infinite;
+}
+.title p{
+    display:block;
+
+}
+@keyframes text {
+    0% {
+        font-size: 0px;
+    }
+    50% {
+        font-size: 30px;
+    }
+    100% {
+        font-size: 60px;
+    }
+}
+@keyframes text-grow {
+    0% {
+        color: rgb(255, 102, 0); 
+        text-shadow:  5px 5px black;
+    }
+   
+    100% {
+        color: rgb(233, 140, 78);
+        text-shadow: 0px 0px 5px 20px white,
+        0px 0px 50px white,
+        0px 0px 15px white, ;
+    }
+}
